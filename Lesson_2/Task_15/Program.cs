@@ -10,9 +10,9 @@ int a = Convert.ToInt32(Console.ReadLine());
 if (a>1 && a<6) {
     Console.WriteLine("Это рабочий день"); 
 } else {
-    if (a=6 || a=7) {
+    if (a == 6 || a == 7) {
         Console.WriteLine("Это выходной день");
     } else{
-        Console.WriteLine("Ввудено некорректное значение");
+        Console.WriteLine("Введено некорректное значение");
     }
-
+}

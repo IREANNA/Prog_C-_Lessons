@@ -7,4 +7,8 @@
 Console.Write("Введите трехзначное число: ");
 int a = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Вторая цифра введенного числа: " + a / 10 % 10);
+if (a > 99 && a < 1000) {
+    Console.WriteLine("Вторая цифра введенного числа: " + a / 10 % 10);
+} else {
+    Console.WriteLine("ВВеденное число не является трехзначным");
+}
