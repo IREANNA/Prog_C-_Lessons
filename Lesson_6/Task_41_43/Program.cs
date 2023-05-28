@@ -14,7 +14,21 @@ int task=Convert.ToInt32(Console.ReadLine());
 switch (task)
 {
     case 41:
-        task41();
+        Console.WriteLine("Введите вариант решения 1,2 или 3: ");
+        switch (Convert.ToInt32(Console.ReadLine())) {
+            case 1:
+                task41_1();
+                break;
+            case 2:
+                task41_2();
+                break;
+            case 3:
+                task41_3();
+                break;
+            default:
+                Console.WriteLine("Вариант с таким номером отсутствует: ");
+                break;
+        }
         break;
     case 43:
         task43();
@@ -30,7 +44,7 @@ int Numb(string str) {
     return a;
 }
 
-void task41(){
+void task41_1(){
     Console.WriteLine("Введите целые числа через пробел (последний символ также пробел): ");
     string numbers= Console.ReadLine();
     int count = 0;
@@ -49,6 +63,30 @@ void task41(){
             default:
                 num+=num*10+Convert.ToInt32(char_);
                 break;
+        }
+    }
+    Console.WriteLine("Количество положительных чисел: " + count);
+}
+
+void task41_2(){
+    Console.WriteLine("Введите целые числа (допустимые разделители - пробел, запятая, точка с запятой): ");
+    char[] separators = new char[] { ' ', ',', ';'};
+    string[] numbers= Console.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    int[] num = Array.ConvertAll(numbers, int.Parse);
+    int count=0;
+    for (int i = 0; i < numbers.Length; i++) {
+        if (num[i] >0) count+=1;
+    }
+    Console.WriteLine("Количество положительных чисел: " + count);
+}
+
+void task41_3(){
+    Console.WriteLine("Введите целые числа через пробел: ");
+    string[] numbers= Console.ReadLine().Split();
+    int count=0;
+    for (int i = 0; i < numbers.Length; i++) {
+        if (int.TryParse(numbers[i], out int result)==true){
+            if (result>0) count++;
         }
     }
     Console.WriteLine("Количество положительных чисел: " + count);
