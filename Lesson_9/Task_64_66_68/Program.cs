@@ -23,7 +23,7 @@ switch (Numb("Введите номер задачи (64, 66 или 68): "))
                                     Numb("Введите конечное число: ")));
         break;
     case 68:
-        Console.WriteLine(Ackermann(Numb("Введите первое число: "), Numb("Введите второе число: ")));
+        Task68();
         break;
     default:
         Console.WriteLine("Задача с таким номером отсутствует.");
@@ -55,4 +55,15 @@ double Ackermann(double n, double m)
     if (n == 0) return m + 1;
     else if (m == 0) return Ackermann(n - 1, 1);
     else return Ackermann((n - 1), Ackermann(n, m - 1));
+}
+
+void Task68()
+{
+    int numberFirst = Numb("Введите первое число: ");
+    int numberSecond = Numb("Введите второе число: ");
+    if (numberFirst>=0 && numberSecond>=0) {
+        Console.WriteLine(Ackermann(numberFirst, numberSecond));
+    } else {
+        Console.WriteLine("Введено некорректное значение");
+    }
 }
